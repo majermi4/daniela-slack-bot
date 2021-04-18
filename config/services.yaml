@@ -29,3 +29,8 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    JoliCode\Slack\Api\Client:
+        # the first argument is the class and the second argument is the static method
+        factory: [ 'JoliCode\Slack\ClientFactory', 'create' ]
+        arguments: ['%env(string:SLACK_TOKEN)%']
